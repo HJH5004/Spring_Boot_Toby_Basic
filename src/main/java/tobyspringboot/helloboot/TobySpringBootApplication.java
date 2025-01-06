@@ -1,29 +1,37 @@
 package tobyspringboot.helloboot;
 
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServer;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.context.support.GenericWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
 
+@Configuration
+@ComponentScan
 public class TobySpringBootApplication {
 
-    public static void main(String[] args) {
-
-        //스프링 컨테이너에 Bean 등록
-        GenericWebApplicationContext applicationContext =  new GenericWebApplicationContext();
-        applicationContext.registerBean(HelloController.class);
-        applicationContext.registerBean(SimpleHelloService.class);
-        applicationContext.refresh();
-
-        ServletWebServerFactory serverFactory = new TomcatServletWebServerFactory();
-        WebServer webserver = serverFactory.getWebServer(servletContext -> {
-            servletContext.addServlet("dispatcherServlet",
-                        new DispatcherServlet(applicationContext)
-                    ).addMapping("/");
-        });
-        webserver.start();
+    @Bean
+    public ServletWebServerFactory servletWebServerFactory(){
+        return new TomcatServletWebServerFactory();
     }
+
+    @Bean
+    public DispatcherServlet dispatcherServlet(){
+        return  new DispatcherServlet();
+    }
+
+    public static void main(String[] args) {
+//        MySpringApplication.run(TobySpringBootApplication.class, args);
+        SpringApplication.run(TobySpringBootApplication.class, args);
+    }
+
 }
