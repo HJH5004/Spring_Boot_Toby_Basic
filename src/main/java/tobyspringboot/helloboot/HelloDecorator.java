@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 @Primary
 public class HelloDecorator implements HelloService{
 
+    //hellowService 를 의존하고 있음!
     private final HelloService helloService;
 
     public HelloDecorator(HelloService helloService){
