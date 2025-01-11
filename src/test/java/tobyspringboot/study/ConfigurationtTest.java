@@ -6,7 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-public class ConfigurationtTest {
+public class  ConfigurationtTest {
 
     @Test
     void configuration(){
@@ -51,6 +51,8 @@ public class ConfigurationtTest {
             return this.common;
         }
     }
+    //false를 생성하면 싱글톤 패턴이 아니라 class에 명시 되어있는 것 처럼 의존성이 주입 됨 = Common 객체가 새로운걸로 2개 생성되게 된다.
+//    @Configuration(proxyBeanMethods = false)
     @Configuration
     static class MyConfig {
         @Bean
