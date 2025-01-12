@@ -1,13 +1,11 @@
 package tobyspringboot.config;
 
-import org.springframework.boot.autoconfigure.kafka.StreamsBuilderFactoryBeanCustomizer;
 import org.springframework.boot.context.annotation.ImportCandidates;
 import org.springframework.context.annotation.DeferredImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.StreamSupport;
 
 public class MyAutoConfigurationImportSelector implements DeferredImportSelector {
 
@@ -25,9 +23,7 @@ public class MyAutoConfigurationImportSelector implements DeferredImportSelector
 
         //Plan B. 단순한 for문을 활용한 itnerrate 처리
         List<String> autoConfigs = new ArrayList<>();
-        for(String candidate : ImportCandidates.load(MyAutoConfiguration.class, classloader)){
-            autoConfigs.add(candidate);
-        }
+        ImportCandidates.load(MyAutoConfiguration.class, classloader).forEach(autoConfigs :: add );
         return autoConfigs.toArray(new String[0]);
 
 

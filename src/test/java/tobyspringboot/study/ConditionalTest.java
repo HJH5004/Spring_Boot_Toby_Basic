@@ -72,6 +72,7 @@ public class ConditionalTest {
     static class BooleanCondition implements Condition {
 
         @Override
+        //metadata 파라미터를 통해 어노테이션에 파라미터로 전달되어 있는 파라미터값을 가지고 온다.
         public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
             //AnnotaionTypeMetaData를 통해서 어노테이션의 어트리뷰트를 챙길 수 있으
             Map<String, Object> annotationAttributes = metadata.getAnnotationAttributes(BooleanConditional .class.getName());
