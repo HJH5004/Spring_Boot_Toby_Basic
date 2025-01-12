@@ -14,7 +14,6 @@ public class DataSourceConfig {
     DataSource dataSource(){
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
 
-        dataSource.
 
         return dataSource;
     }
