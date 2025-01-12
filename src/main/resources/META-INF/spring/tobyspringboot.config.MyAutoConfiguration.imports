@@ -1,4 +1,5 @@
-tobyspringboot.config.autoConfig.ServerPropertiesConfig
+tobyspringboot.config.autoConfig.DataSourceConfig
+tobyspringboot.config.autoConfig.PropertyPostProcessorConfig
 tobyspringboot.config.autoConfig.PropertyPlaceholderConfig
 tobyspringboot.config.autoConfig.DispatcherServletConfig
 tobyspringboot.config.autoConfig.TomcatWebServerConfig

@@ -1,5 +1,9 @@
 package tobyspringboot.config.autoConfig;
 
+import org.springframework.stereotype.Component;
+import tobyspringboot.config.MyConfigurationProperties;
+
+@MyConfigurationProperties(prefix = "server")
 public class ServerProperties {
     private String contextPath;
     private int portNo;
