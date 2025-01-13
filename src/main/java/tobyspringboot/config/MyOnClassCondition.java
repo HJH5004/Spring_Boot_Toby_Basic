@@ -8,7 +8,7 @@ import org.springframework.util.ClassUtils;
 import java.util.Map;
 
 
-public class MyOnClassCondition implements Condition {
+public class  MyOnClassCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
         Map<String, Object> attributes = metadata.getAnnotationAttributes(ConditionalMyOnClass.class.getName());
