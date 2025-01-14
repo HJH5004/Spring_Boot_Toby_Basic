@@ -1,11 +1,9 @@
 package tobyspringboot.helloboot;
 
 
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
+import jakarta.annotation.PostConstruct;
 import org.springframework.boot.SpringApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.core.env.Environment;
+import org.springframework.jdbc.core.JdbcTemplate;
 import tobyspringboot.config.MySpringBootApplication;
 
 
@@ -20,6 +18,17 @@ public class TobySpringBootApplication {
 //            System.out.println("my.name = "+name);
 //        };
 //    }
+    private final JdbcTemplate jdbcTemplate;
+
+    public TobySpringBootApplication(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    @PostConstruct
+    void init(){
+        jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS HELLO (NAME VARCHAR(50) PRIMARY KEY, COUNT INT)");
+    }
+
 
     public static void main(String[] args) {
 //        MySpringApplication.run(TobySpringBootApplication.class, args);

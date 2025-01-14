@@ -26,5 +26,4 @@ public class JdbcTempleteTest {
         Long count = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM MEMBER", Long.class);
         Assertions.assertThat(count).isEqualTo(2);
     }
-
 }
