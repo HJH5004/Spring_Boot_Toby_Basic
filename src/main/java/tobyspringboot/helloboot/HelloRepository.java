@@ -1,6 +1,6 @@
 package tobyspringboot.helloboot;
 
-public interface HelloRepository {
+public interface  HelloRepository {
     Hello findHello(String name);
 
     void  increaseCount(String name);

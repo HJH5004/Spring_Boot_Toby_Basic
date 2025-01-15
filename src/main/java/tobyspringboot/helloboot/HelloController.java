@@ -1,9 +1,7 @@
 package tobyspringboot.helloboot;
 
 
-import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Objects;
@@ -21,5 +19,10 @@ public class HelloController  {
     public String hello(String name){
         if(null == name || name.trim().length()  == 0 ) throw new IllegalArgumentException();
         return helloService.sayHello(Objects.requireNonNull(name));
+    }
+
+    @GetMapping("/count")
+    public String count(String name){
+        return name + " : " + helloService.countOf(Objects.requireNonNull(name));
     }
 }
