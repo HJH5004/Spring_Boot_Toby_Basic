@@ -3,11 +3,13 @@ package tobyspringboot.helloboot;
 
 import jakarta.annotation.PostConstruct;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 import tobyspringboot.config.MySpringBootApplication;
 
 
-@MySpringBootApplication
+//@MySpringBootApplication
+@SpringBootApplication
 public class TobySpringBootApplication {
 
     //프로 퍼티 우선 순위 : system 프로퍼티 > 환경 변수 > application.properties

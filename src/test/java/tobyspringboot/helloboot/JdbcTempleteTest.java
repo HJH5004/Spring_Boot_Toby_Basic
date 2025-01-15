@@ -4,10 +4,12 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.JdbcTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.annotation.Rollback;
 
-@HelloBootTest
+//@HelloBootTest
+@JdbcTest
 public class JdbcTempleteTest {
     @Autowired
     JdbcTemplate jdbcTemplate;
