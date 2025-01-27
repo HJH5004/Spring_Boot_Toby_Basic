@@ -22,7 +22,7 @@ public class TomcatWebServerConfig {
     String contextPath;
 
     // 만약 프로퍼티의 값이 없다면 이렇게 :--- 형태로 기본 값을 설정할 수 있다.
-    @Value("${port:8080}")
+    @Value("${port:9090}")
     int port;
 
     @Bean("tomcatWebserverFactory")
